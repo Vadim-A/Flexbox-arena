@@ -1,0 +1,94 @@
+html {
+	background: #ccc;
+	min-height: 100%;
+	font-family: sans-serif;
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  /* flex: 1 1 auto; */
+  flex-grow: 1;
+}
+
+section {
+  flex: 1 1 auto;
+}
+
+.container {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.block {
+  border: 1px solid blue;
+  padding: 5px;
+  margin: 5px;
+
+  /* 0px - Элемент не растягивается на свободное место */
+  /* Данный параметр работает в контексте значений flex-grow всех соседних элементов и делит свободное место в указанных соотношениях в flex-grow */
+  flex-grow: 0;
+
+  /* элемент не сужается при уменьшении ширины контейнера */
+  /* Данный параметр работает в контексте значений flex-shrink всех соседних элементов и уменьшает элемент в указанных соотношениях в flex-shrink */
+  flex-shrink: 1;
+
+  /* базовая ширина гибкого элемента. Перетирает width элементов */
+  flex-basis: 100px;
+
+  /* Сокращенно flex: <flex-grow> <flex-shrink> <flex-basis>; */
+}
+
+.c1 {
+  display: flex;
+  flex-flow: row wrap;
+  /* width: 600px; */
+  height: 150px;
+
+  /* расположение элементов по главной оси */
+  justify-content: space-around; 
+
+  /* расположение элементов по перпендикулярной оси внутри ряда */
+  align-items: flex-end;
+
+  /* расположение рядов по перпендикулярной оси */
+  align-content: space-between;
+}
+
+.c1 > .b1 {
+  width: 50px;
+  order: 0;
+  height: 30px;
+  /* Работает так же, как и align-items у контейнера, но для конкретного элемента */
+  align-self: flex-start;
+}
+
+.c1 > .b2 {
+  width: 70px;
+  order: 2;
+  height: 50px
+}
+
+.c1 > .b3 {
+  width: 100px;
+  order: 1;
+  height: 40px
+}
+
+.c1 > .b4 {
+  width: 150px;
+  flex: 1;
+  order: 3;
+}
+
+.c1 > .b5 {
+  width: 200px;
+  order: 4;
+}
+
+.c1 > .b6 {
+  flex: 0.5;
+  order: 5;
+}
